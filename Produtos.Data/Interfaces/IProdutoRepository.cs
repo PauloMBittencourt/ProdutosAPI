@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Produtos.Data.Interfaces
 {
-    public interface ICartaoRepository : IBaseRepository<Cartao>
+    public interface IProdutoRepository : IBaseRepository<Produto>
     {
-
     }
 }

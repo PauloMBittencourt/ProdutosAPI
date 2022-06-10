@@ -8,7 +8,7 @@ namespace Produtos.Data.Interfaces
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {
-        Task<IQueryable<TEntity>> GetAll();
+        IQueryable<TEntity> GetAll();
         Task<TEntity> Insert(TEntity entity);
         Task<int> SaveChanges();
         Task<TEntity> Update(TEntity entity);
