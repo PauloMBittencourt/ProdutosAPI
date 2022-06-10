@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Podutos.Domain.Entities
+namespace Produtos.Data.Respositories
 {
-    public class Cliente
+    public class CartaoRepository
     {
 
     }

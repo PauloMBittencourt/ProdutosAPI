@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Podutos.Domain.Entities
+namespace Produtos.Data.Interfaces
 {
-    public class Cliente
+    public interface ICartaoRepository
     {
 
     }

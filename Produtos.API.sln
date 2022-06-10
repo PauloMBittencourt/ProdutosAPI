@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Produtos.API", "Produtos.API\Produtos.API.csproj", "{59F88ECC-D3FE-4617-B20E-F26B5C1D472F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Podutos.Data", "Podutos.Data\Podutos.Data.csproj", "{87A17EF6-31B6-423C-9931-27F6D605A36A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Podutos.Domain", "Podutos.Data\Podutos.Domain.csproj", "{87A17EF6-31B6-423C-9931-27F6D605A36A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Produtos.Data", "Produtos.Data\Produtos.Data.csproj", "{3D0C579D-27C8-475C-A5ED-84BCAB1BD926}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{87A17EF6-31B6-423C-9931-27F6D605A36A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87A17EF6-31B6-423C-9931-27F6D605A36A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87A17EF6-31B6-423C-9931-27F6D605A36A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D0C579D-27C8-475C-A5ED-84BCAB1BD926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D0C579D-27C8-475C-A5ED-84BCAB1BD926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D0C579D-27C8-475C-A5ED-84BCAB1BD926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D0C579D-27C8-475C-A5ED-84BCAB1BD926}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
