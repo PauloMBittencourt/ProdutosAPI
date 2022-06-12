@@ -20,6 +20,6 @@ namespace Produtos.Data.Respositories
 
         public async Task<Produto?> GetProduto(int CodPrduto) => await _dbSet.FirstOrDefaultAsync(x => x.ProdutoId == CodPrduto);
 
-        public IQueryable<Produto?> GetProdutosDisponiveis(int CodProduto) => _dbSet.Where(x => x.ProdutoId == CodProduto).Where(x => x.Qtde_estoque != 0);
+        public IQueryable<Produto?> GetProdutosDisponiveis() => _dbSet.Where(x => x.Qtde_estoque != 0);
     }
 }

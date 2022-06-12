@@ -20,5 +20,15 @@ namespace Produtos.Service.Services
             _mapper = mapper;
             _produtoRepository = produtoRepository;
         }
+
+        public Task<IEnumerable<Produto>> GetProdutosAvailable()
+        {
+            var products = _produtoRepository.GetProdutosDisponiveis();]
+
+            if (products is null)
+            {
+                return Task.FromResult(new ResponseService(System.Net.HttpStatusCode.BadRequest, "Ocorreu um erro desconhecido"));
+            }
+        }
     }
 }

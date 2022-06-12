@@ -13,6 +13,12 @@ namespace Produtos.Service.Services
         public HttpStatusCode  StatusCode{ get; set; }
         public string? Message { get; set; }
 
+        public ResponseService(HttpStatusCode status, string message)
+        {
+            StatusCode = status;
+            Message = message;
+        }
+
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
