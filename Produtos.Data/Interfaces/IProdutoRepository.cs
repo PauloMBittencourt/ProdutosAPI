@@ -9,5 +9,6 @@ namespace Produtos.Data.Interfaces
 {
     public interface IProdutoRepository : IBaseRepository<Produto>
     {
+        IQueryable<Produto?> GetProdutosDisponiveis(int CodProduto);
     }
 }
