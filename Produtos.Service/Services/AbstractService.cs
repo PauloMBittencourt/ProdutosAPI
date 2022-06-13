@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using Produtos.Service.Helpers;
 using Produtos.Service.Interfaces;
 using System.Net;
@@ -78,6 +79,17 @@ namespace Produtos.Service.Services
         public List<string> ObterNotificacoes()
         {
             return _notificador;
+        }
+
+        protected bool ExecutarValidacao<TV, TE>(TV validacao, TE entidade) where TV : AbstractValidator<TE>
+        {
+            var validator = validacao.Validate(entidade);
+
+            if (validator.IsValid) return true;
+
+            Notificar(validator);
+
+            return false;
         }
 
     }

@@ -1,12 +1,15 @@
 using Produtos.API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Produtos.Data.Context;
+using Produtos.Service.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDependenceInjection();
 builder.Services.AddControllers();
+
+builder.Services.AddAutoMapper(typeof(ProdutoMapper));
 
 //Conexão com o banco
 builder.Services.AddDbContext<ApiDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Conexao")));

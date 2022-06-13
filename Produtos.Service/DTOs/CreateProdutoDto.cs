@@ -1,6 +1,6 @@
-﻿namespace Produtos.API.DTOs
+﻿namespace Produtos.Service.DTOs
 {
-    public class GetProdutoDto
+    public class CreateProdutoDto
     {
         public string? Nome_Prod { get; set; }
         public decimal Valor_unitario { get; set; }
