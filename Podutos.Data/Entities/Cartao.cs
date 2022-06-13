@@ -8,10 +8,11 @@ namespace Podutos.Domain.Entities
 {
     public class Cartao
     {
-        public int Numero { get; set; }
+        public string? Numero { get; set; }
         public string? Titular { get; set; }
-        public DateTime Data_Expiracao { get; set; }
+        public string? Data_Expiracao { get; set; }
         public string? Bandeira { get; set; }
-        public int CVV { get; set; }
+        public string? CVV { get; set; }
+
     }
 }

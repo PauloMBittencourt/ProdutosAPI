@@ -18,7 +18,7 @@ namespace Produtos.API.Controllers
         }
 
         /// <summary>
-        /// Endpoint para cadastro de pessoa no elenco
+        /// Endpoint para pegar todos produtos disponiveis
         /// </summary>
         /// <returns></returns>
         [HttpGet("PegarTodosDisponiveis")]
@@ -34,7 +34,7 @@ namespace Produtos.API.Controllers
         }
 
         /// <summary>
-        /// Endpoint para retornar filmes paginados
+        /// Endpoint para adicionar produtos
         /// </summary>
         /// <param name="prodDto"></param>
         /// <returns></returns>
@@ -53,5 +53,21 @@ namespace Produtos.API.Controllers
                 return BadRequest(response.Message);
         }
 
+        /// <summary>
+        /// Endpoint para comprar produtos
+        /// </summary>
+        /// <param name="prodDto"></param>
+        /// <returns></returns>
+        [HttpPost("ComprarProduto")]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        public async Task<IActionResult> ComprarProduto(ContractProdutoDto prodDto)
+        {
+            var response = await _produtoService.ContratarProduto(prodDto);
+            if (response.Success)
+                return Ok(response);
+            else
+                return BadRequest(response.Message);
+        }
     }
 }

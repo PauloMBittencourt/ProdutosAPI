@@ -10,6 +10,9 @@ namespace Produtos.Service.Mapper
         {
             CreateMap<CreateProdutoDto, Produto>()
                 .ReverseMap();
+
+            CreateMap<ContractProdutoDto, Produto>()
+                .ReverseMap();
         }
     }
 }

@@ -11,7 +11,8 @@ namespace Produtos.Service.Interfaces
 {
     public interface IProdutoService : IService
     {
+        Task<ResponseService<ContractProdutoDto>> ContratarProduto(ContractProdutoDto prodDto);
         Task<ResponseService> CreateProduto(CreateProdutoDto prodDto);
-        ResponseService<IEnumerable<Produto>> GetProdutosAvailable();
+        ResponseService<IEnumerable<GetProdutoDto>> GetProdutosAvailable();
     }
 }

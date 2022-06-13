@@ -12,7 +12,7 @@ using Produtos.Data.Context;
 namespace Produtos.Data.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20220613122049_Initial")]
+    [Migration("20220613155729_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,11 +26,8 @@ namespace Produtos.Data.Migrations
 
             modelBuilder.Entity("Podutos.Domain.Entities.Cartao", b =>
                 {
-                    b.Property<int>("Numero")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Numero"), 1L, 1);
+                    b.Property<string>("Numero")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Bandeira")
                         .IsRequired()
@@ -42,8 +39,9 @@ namespace Produtos.Data.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
 
-                    b.Property<DateTime>("Data_Expiracao")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Data_Expiracao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Titular")
                         .IsRequired()
@@ -63,6 +61,9 @@ namespace Produtos.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProdutoId"), 1L, 1);
 
+                    b.Property<DateTime?>("Data_Ultima_Venda")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Nome_Prod")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -70,6 +71,9 @@ namespace Produtos.Data.Migrations
 
                     b.Property<int>("Qtde_estoque")
                         .HasColumnType("int");
+
+                    b.Property<decimal?>("Valor_Ultima_Venda")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Valor_unitario")
                         .HasColumnType("decimal");
