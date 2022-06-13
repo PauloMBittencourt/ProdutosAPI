@@ -10,8 +10,8 @@ namespace Produtos.Data.Context
 {
     public class ApiDbContext : DbContext
     {
-        public ApiDbContext(DbContextOptions options) : base(options)
-            => ChangeTracker.LazyLoadingEnabled = false;
+        public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options) 
+            => ChangeTracker.LazyLoadingEnabled = false;    
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace Produtos.Data.Context
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
                 relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
             base.OnModelCreating(modelBuilder);
-        }
+        }   
 
         public DbSet<Produto> Produtos { get; set; } = null!;
         public DbSet<Cartao> Cartoes { get; set; } = null!;

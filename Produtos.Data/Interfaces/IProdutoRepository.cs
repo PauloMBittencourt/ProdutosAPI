@@ -10,6 +10,7 @@ namespace Produtos.Data.Interfaces
     public interface IProdutoRepository : IBaseRepository<Produto>
     {
         Task<Produto?> GetProduto(int CodPrduto);
+        Task<Produto?> GetProdutoByName(string Nome);
         IQueryable<Produto?> GetProdutosDisponiveis();
     }
 }

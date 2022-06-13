@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Produtos.Data.Context;
 using Produtos.Data.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,10 @@ namespace Produtos.Data.Respositories
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        private readonly DbContext _context;
+        private readonly ApiDbContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public BaseRepository(DbContext context)
+        public BaseRepository(ApiDbContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();

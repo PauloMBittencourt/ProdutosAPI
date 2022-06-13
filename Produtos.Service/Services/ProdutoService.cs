@@ -1,34 +1,41 @@
 ﻿using AutoMapper;
 using Podutos.Domain.Entities;
 using Produtos.Data.Interfaces;
+using Produtos.Service.Helpers;
 using Produtos.Service.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
 
 namespace Produtos.Service.Services
 {
-    public class ProdutoService : IProdutoService
+    public class ProdutoService : AbstractService, IProdutoService
     {
-        private readonly IMapper _mapper;
         private readonly IProdutoRepository _produtoRepository;
 
-        public ProdutoService(IMapper mapper, IProdutoRepository produtoRepository)
+        public ProdutoService(IProdutoRepository produtoRepository)
         {
-            _mapper = mapper;
             _produtoRepository = produtoRepository;
         }
 
-        public Task<IEnumerable<Produto>> GetProdutosAvailable()
+        public async ResponseService CreateProduto(Produto prod) 
         {
-            var products = _produtoRepository.GetProdutosDisponiveis();]
+            var filmes = _produtoRepository.GetProdutoByName(prod.Nome_Prod);
 
-            if (products is null)
+            if (filmes != null) 
             {
-                return Task.FromResult(new ResponseService(System.Net.HttpStatusCode.BadRequest, "Ocorreu um erro desconhecido"));
+                return GenerateBadRequestServiceResponse("Ocorreu um erro desconhecido");
             }
+        }
+
+        public ResponseService<IEnumerable<Produto>> GetProdutosAvailable()
+        {
+            var products = _produtoRepository.GetProdutosDisponiveis();
+
+            if (!products.Any())
+            {
+                return GenerateBadRequestServiceResponse<IEnumerable<Produto>>("Ocorreu um erro desconhecido");
+            }
+
+            return GenerateSuccessServiceResponse(products.AsEnumerable());
         }
     }
 }
